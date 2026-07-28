@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turk-Work Pro - Advanced Daily Tracker</title>
-    <link rel="icon" type="image/png" href="0102.png">
+        <link rel="icon" type="image/png" href="0102.png">
     <!-- Chart.js for Analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Canvas Confetti for Target Completion -->
@@ -176,14 +176,12 @@
         }
         .progress-bar-bg { background: var(--border); height: 10px; border-radius: 10px; overflow: hidden; }
         
-        /* Work Progress Bar (Fills Up) */
         .progress-bar-fill {
             height: 100%; width: 0%; border-radius: 10px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             transition: width 0.4s ease;
         }
 
-        /* Time Progress Bar (Empties Down) */
         .time-bar-fill {
             height: 100%; width: 100%; border-radius: 10px;
             background: linear-gradient(90deg, #f59e0b, var(--danger));
@@ -387,7 +385,235 @@
         .cell-date { font-weight: 700; font-size: 11px; color: var(--text-muted); }
         .cell-badge { background: var(--primary); color: white; padding: 2px 4px; border-radius: 4px; font-size: 9px; margin-top: 2px; }
 
-        /* Printable Area CSS */
+        /* UPDATED Paragraph Feature Styling */
+        .para-card {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .para-card.highlighted {
+            border-color: var(--primary);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.35);
+        }
+        .para-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .para-badge {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        .para-content {
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            color: var(--text-main);
+            word-break: break-word;
+            max-height: 250px;
+            overflow-y: hidden;
+            padding-right: 8px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: text;
+        }
+        
+        .para-content:hover {
+            border-color: var(--primary);
+        }
+
+        .para-content.reading-mode {
+            overflow-y: auto;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+            background: var(--bg-card);
+        }
+
+        .para-content.reading-mode::-webkit-scrollbar {
+            width: 6px;
+        }
+        .para-content.reading-mode::-webkit-scrollbar-track {
+            background: var(--bg-body);
+            border-radius: 4px;
+        }
+        .para-content.reading-mode::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .copy-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        .modal-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 16px;
+            position: sticky;
+            top: -24px;
+            background: var(--bg-card);
+            z-index: 10;
+        }
+        .modal-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .close-modal-icon {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .close-modal-icon:hover {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+        }
+
+        /* NEW TWO-LEVEL SETTINGS MENU STYLES */
+        .settings-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            .settings-menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .settings-menu-card {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .settings-menu-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+            background: var(--bg-card);
+        }
+        .settings-menu-card.danger-card:hover {
+            border-color: var(--danger);
+            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.15);
+        }
+        .settings-menu-card .menu-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .settings-menu-card .menu-icon {
+            font-size: 26px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .settings-menu-card .menu-title {
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+        .settings-menu-card .menu-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+        .settings-menu-card .menu-arrow {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .settings-view-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .btn-back-settings {
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .btn-back-settings:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .settings-sub-page {
+            animation: fadeIn 0.25s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media print {
             body * { visibility: hidden; }
             #printableArea, #printableArea * { visibility: visible; }
@@ -395,7 +621,7 @@
                 position: absolute; left: 0; top: 0; width: 100%;
                 background: white !important; color: black !important; padding: 20px;
             }
-            .close-modal, .filter-controls { display: none !important; }
+            .close-modal, .filter-controls, .close-modal-icon { display: none !important; }
             .earnings-dashboard-card { border: 1px solid #000; background: #f9f9f9 !important; }
             .earnings-table th, .earnings-table td { border-bottom: 1px solid #000 !important; color: black !important; }
         }
@@ -425,6 +651,7 @@
         <div class="nav-item">Today: <span id="todayTotal">0</span></div>
         <div class="nav-item">Yesterday: <span id="yesterdayTotal">0</span></div>
 
+        <button class="btn-icon" onclick="openParagraphModal()">📝 <span id="btn-text-para">Paragraph</span></button>
         <button class="btn-icon" onclick="openAnalyticsModal()">📊 <span id="btn-text-chart">Chart</span></button>
         <button class="btn-icon" onclick="openCalendar()">📅 <span id="btn-text-cal">Calendar</span></button>
         <button class="btn-icon" onclick="openSettings()">⚙️ <span id="btn-text-settings">Accounts</span></button>
@@ -445,7 +672,6 @@
             <span style="font-size:28px;">⚡</span>
         </div>
         
-        <!-- Interactive Today Earnings Card -->
         <div class="stat-card clickable" onclick="openEarningsModal('today')" title="আজকের ইনকাম ড্যাশবোর্ড দেখতে ক্লিক করুন">
             <div>
                 <div class="stat-lbl" id="lbl-today-earnings">আজকের আনুমানিক আয় ↗</div>
@@ -454,7 +680,6 @@
             <span style="font-size:28px;">💰</span>
         </div>
         
-        <!-- Interactive Month Earnings Card -->
         <div class="stat-card clickable" onclick="openEarningsModal('month')" title="চলতি মাসের ইনকাম ড্যাশবোর্ড দেখতে ক্লিক করুন">
             <div>
                 <div class="stat-lbl" id="lbl-month-earnings">চলতি মাসের আয় ↗</div>
@@ -469,13 +694,11 @@
 
     <!-- Main Grid -->
     <div class="grid">
-        <!-- Input Actions Panel -->
         <div class="card">
             <div id="text-control-title" style="font-size: 13px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom:15px;">ক্লিক করে কাজ জমা দিন</div>
             <div id="accountButtonsContainer"></div>
         </div>
 
-        <!-- Real-Time Log Table Card -->
         <div class="card">
             <div class="card-header-flex">
                 <div style="font-weight:800; font-size:16px;" id="text-log-title">আজকের রানিং কাজের খাতা</div>
@@ -506,15 +729,32 @@
     </div>
 </div>
 
-<!-- Toast Container for Undo -->
 <div id="toastContainer"></div>
 
-<!-- Dynamic Earnings & Statement Download Dashboard Modal -->
+<!-- Paragraph List Viewer Modal -->
+<div class="modal" id="paragraphModal">
+    <div class="modal-content">
+        <div class="modal-header-bar">
+            <div style="display:flex; align-items:center; gap:12px;">
+                <h3 id="modal-para-title" style="margin:0;">সংরক্ষিত প্যারাগ্রাফসমূহ</h3>
+                <select id="paraQuickSelector" class="form-control" style="padding:4px 8px; font-weight:bold; width:auto;" onchange="jumpToParagraph(this.value)">
+                    <option value="">Jump to Paragraph...</option>
+                </select>
+            </div>
+            <div class="modal-header-actions">
+                <button class="btn-action" onclick="closeModal('paragraphModal'); openSettingsView('paragraph');" style="background:var(--primary);">⚙️ Manage Paragraphs</button>
+                <span class="close-modal-icon" onclick="closeModal('paragraphModal')" title="Close">✕</span>
+            </div>
+        </div>
+        <div id="paragraphListContainer"></div>
+    </div>
+</div>
+
+<!-- Dynamic Earnings Dashboard Modal -->
 <div class="modal" id="earningsModal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal('earningsModal')">&times;</span>
         
-        <!-- Statement Filter Options -->
         <div class="filter-controls">
             <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
                 <label style="font-size:12px; font-weight:bold;">ফিল্টার টাইপ:</label>
@@ -532,7 +772,6 @@
             <button class="btn-action" style="background:var(--success);" onclick="printStatement()">🖨️ ডাউনলোড স্টেটমেন্ট (PDF)</button>
         </div>
 
-        <!-- Printable Area Starts Here -->
         <div id="printableArea">
             <h3 id="earningsModalTitle" style="margin-top:0;">আয়ের বিস্তারিত স্টেটমেন্ট</h3>
             
@@ -586,37 +825,153 @@
     </div>
 </div>
 
-<!-- Settings & Backup Modal -->
+<!-- Settings & Backup Modal (Redesigned Two-Level System) -->
 <div class="modal" id="settingsModal">
     <div class="modal-content" style="max-width: 650px;">
         <span class="close-modal" onclick="closeModal('settingsModal')">&times;</span>
-        <h3 id="modal-settings-title" style="margin-top:0;">অ্যাকাউন্ট, টার্গেট, সময় ও গড় মূল্য সেটআপ</h3>
 
-        <div id="settingsAccountList"></div>
+        <!-- Level 1: Main Settings Menu Grid -->
+        <div id="settingsMainMenu">
+            <h3 id="modal-settings-title" style="margin-top:0; margin-bottom:20px; text-align:center;">⚙️ Settings</h3>
+            
+            <div class="settings-menu-grid">
+                <div class="settings-menu-card" onclick="openSettingsView('account')">
+                    <div class="menu-left">
+                        <div class="menu-icon">⚙️</div>
+                        <div>
+                            <div class="menu-title">Account Settings</div>
+                            <div class="menu-desc">Account এবং Account-related Settings পরিচালনা করুন।</div>
+                        </div>
+                    </div>
+                    <div class="menu-arrow">›</div>
+                </div>
 
-        <div class="form-row" style="margin-top:15px;">
-            <input type="text" id="newAccountNameInput" class="form-control" placeholder="অ্যাকাউন্ট নাম...">
-            <input type="number" id="newAccountTargetInput" class="form-control" placeholder="কাজের টার্গেট (Ex: 10)">
-            <input type="number" id="newAccountHoursInput" class="form-control" placeholder="ঘণ্টা (Ex: 4)">
-            <input type="number" id="newAccountMinsInput" class="form-control" placeholder="মিনিট (Ex: 30)">
-            <input type="number" step="0.01" id="newAccountRateInput" class="form-control" placeholder="গড় মূল্য $ (Ex: 0.15)">
-            <button class="btn-action" onclick="saveAccount()" id="text-add-btn">যোগ করুন</button>
+                <div class="settings-menu-card" onclick="openSettingsView('paragraph')">
+                    <div class="menu-left">
+                        <div class="menu-icon">📝</div>
+                        <div>
+                            <div class="menu-title">Paragraph Management</div>
+                            <div class="menu-desc">আপনার Paragraph তৈরি, Edit, Delete ও Manage করুন।</div>
+                        </div>
+                    </div>
+                    <div class="menu-arrow">›</div>
+                </div>
+
+                <div class="settings-menu-card" onclick="openSettingsView('backup')">
+                    <div class="menu-left">
+                        <div class="menu-icon">📦</div>
+                        <div>
+                            <div class="menu-title">Data Backup & Restore</div>
+                            <div class="menu-desc">আপনার Data Backup অথবা Restore করুন।</div>
+                        </div>
+                    </div>
+                    <div class="menu-arrow">›</div>
+                </div>
+
+                <div class="settings-menu-card danger-card" onclick="openSettingsView('reset')">
+                    <div class="menu-left">
+                        <div class="menu-icon" style="color:var(--danger);">⚠️</div>
+                        <div>
+                            <div class="menu-title" style="color:var(--danger);">Reset</div>
+                            <div class="menu-desc">প্রয়োজন অনুযায়ী Data Reset বা Clear করুন।</div>
+                        </div>
+                    </div>
+                    <div class="menu-arrow">›</div>
+                </div>
+            </div>
         </div>
 
-        <hr style="border:0; border-top:1px dashed var(--border); margin:20px 0;">
+        <!-- Level 2 Sub-Page: 1. Account Settings View -->
+        <div id="viewAccountSettings" class="settings-sub-page" style="display:none;">
+            <div class="settings-view-header">
+                <button class="btn-back-settings" onclick="backToSettingsMenu()">← Back</button>
+                <h3 style="margin:0;">⚙️ Account Settings</h3>
+            </div>
+            
+            <div id="settingsAccountList"></div>
 
-        <h4>📁 ডাটা ব্যাকআপ ও রিস্টোর (Backup & Restore)</h4>
-        <div class="form-row">
-            <button class="btn-action" style="background:var(--primary);" onclick="exportJSONData()">⬇ Export JSON Backup</button>
-            <input type="file" id="importFileInput" style="display:none" onchange="importJSONData(event)">
-            <button class="btn-action" style="background:var(--secondary);" onclick="document.getElementById('importFileInput').click()">⬆ Import JSON Backup</button>
+            <div class="form-row" style="margin-top:15px;">
+                <input type="text" id="newAccountNameInput" class="form-control" placeholder="অ্যাকাউন্ট নাম...">
+                <input type="number" id="newAccountTargetInput" class="form-control" placeholder="কাজের টার্গেট (Ex: 10)">
+                <input type="number" id="newAccountHoursInput" class="form-control" placeholder="ঘণ্টা (Ex: 4)">
+                <input type="number" id="newAccountMinsInput" class="form-control" placeholder="মিনিট (Ex: 30)">
+                <input type="number" step="0.01" id="newAccountRateInput" class="form-control" placeholder="গড় মূল্য $ (Ex: 0.15)">
+                <button class="btn-action" onclick="saveAccount()" id="text-add-btn">যোগ করুন</button>
+            </div>
         </div>
 
-        <hr style="border:0; border-top:1px dashed var(--border); margin:20px 0;">
+        <!-- Level 2 Sub-Page: 2. Paragraph Management View -->
+        <div id="viewParagraphManagement" class="settings-sub-page" style="display:none;">
+            <div class="settings-view-header">
+                <button class="btn-back-settings" onclick="backToSettingsMenu()">← Back</button>
+                <h3 style="margin:0;">📝 Paragraph Management</h3>
+            </div>
 
-        <div class="form-row">
-            <button class="btn-action" style="background:var(--border); color:var(--text-main);" onclick="clearTodayRunning()" id="text-drop-clear">Clear Running Entries</button>
-            <button class="btn-action" style="background:var(--danger);" onclick="clearAllData()" id="text-drop-master">Master Reset (All Data)</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <span style="font-weight:bold; font-size:14px; color:var(--text-muted);">সংরক্ষিত প্যারাগ্রাফ তালিকা</span>
+                <button class="btn-action" style="background:var(--success);" onclick="toggleParagraphBox()">+ Add Paragraph</button>
+            </div>
+
+            <!-- Add/Edit Paragraph Area (Collapsible with Custom Name Support) -->
+            <div id="addParagraphBox" style="display:none; background:var(--bg-body); padding:15px; border-radius:12px; border:1px solid var(--border); margin-bottom:15px;">
+                <h5 id="paraBoxTitle" style="margin:0 0 10px 0;">নতুন প্যারাগ্রাফ তৈরি করুন</h5>
+                <input type="text" id="paragraphNameInput" class="form-control" style="width:100%; margin-bottom:10px;" placeholder="প্যারাগ্রাফের নাম (Optional) - Ex: Cover Letter">
+                <textarea id="paragraphTextArea" class="form-control" rows="5" style="width:100%; resize:vertical; font-family:inherit;" placeholder="এখানে প্যারাগ্রাফের বিস্তারিত লিখুন..."></textarea>
+                <div style="display:flex; gap:10px; margin-top:10px; justify-content:flex-end;">
+                    <button class="btn-action" style="background:var(--border); color:var(--text-main);" onclick="cancelParagraphEdit()">বাতিল</button>
+                    <button class="btn-action" style="background:var(--primary);" onclick="saveParagraph()">Save Paragraph</button>
+                </div>
+            </div>
+
+            <div id="settingsParagraphList"></div>
+        </div>
+
+        <!-- Level 2 Sub-Page: 3. Backup & Restore View -->
+        <div id="viewBackupRestore" class="settings-sub-page" style="display:none;">
+            <div class="settings-view-header">
+                <button class="btn-back-settings" onclick="backToSettingsMenu()">← Back</button>
+                <h3 style="margin:0;">📦 Data Backup & Restore</h3>
+            </div>
+
+            <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px;">আপনার সিস্টেমে সংরক্ষিত সকল ডাটা JSON ফাইল হিসেবে ডাউনলোড বা রিস্টোর করতে নিচের অপশনগুলো ব্যবহার করুন:</p>
+            
+            <div class="form-row">
+                <button class="btn-action" style="background:var(--primary); padding:12px 18px; width:100%; justify-content:center; display:flex; gap:8px;" onclick="exportJSONData()">⬇ Export JSON Backup</button>
+                <input type="file" id="importFileInput" style="display:none" onchange="importJSONData(event)">
+                <button class="btn-action" style="background:var(--secondary); padding:12px 18px; width:100%; justify-content:center; display:flex; gap:8px;" onclick="document.getElementById('importFileInput').click()">⬆ Import JSON Backup</button>
+            </div>
+        </div>
+
+        <!-- Level 2 Sub-Page: 4. Reset Options View -->
+        <div id="viewResetOptions" class="settings-sub-page" style="display:none;">
+            <div class="settings-view-header">
+                <button class="btn-back-settings" onclick="backToSettingsMenu()">← Back</button>
+                <h3 style="margin:0; color:var(--danger);">⚠️ Reset Options</h3>
+            </div>
+
+            <div style="background:rgba(244, 63, 94, 0.08); border: 1px solid var(--danger); padding:15px; border-radius:12px; margin-bottom:20px;">
+                <p style="margin:0; font-size:13px; color:var(--danger); font-weight:600;">সতর্কতা: রিসেট করলে তথ্য মুছে যেতে পারে। প্রয়োজন অনুযায়ী বুঝে-শুনে অ্যাকশন নিন।</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+                <button class="btn-action" style="background:var(--border); color:var(--text-main); padding:14px; text-align:left; font-size:14px;" onclick="promptClearTodayRunning()" id="text-drop-clear">Clear Running Entries</button>
+                <button class="btn-action" style="background:var(--danger); padding:14px; text-align:left; font-size:14px;" onclick="promptClearAllData()" id="text-drop-master">Master Reset (All Data)</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Custom Confirmation Dialog for Reset Actions -->
+<div class="modal" id="resetConfirmModal" style="z-index: 1100;">
+    <div class="modal-content" style="max-width:400px; text-align:center; padding:24px;">
+        <span style="font-size:40px; display:block; margin-bottom:10px;">⚠️</span>
+        <h3 style="margin:0 0 10px 0;" id="resetConfirmTitle">Are you sure?</h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:20px;" id="resetConfirmMessage">This action may permanently remove your saved data.</p>
+        
+        <div style="display:flex; gap:10px; justify-content:center;">
+            <button class="btn-action" style="background:var(--border); color:var(--text-main); flex:1;" onclick="closeModal('resetConfirmModal')">Cancel</button>
+            <button class="btn-action" style="background:var(--danger); flex:1;" id="resetConfirmBtn">Confirm Reset</button>
         </div>
     </div>
 </div>
@@ -625,8 +980,10 @@
     let currentLanguage = 'bn';
     let currentCalDate = new Date();
     let editingAccountId = null;
+    let editingParagraphNumber = null;
     let lastDeletedTask = null;
     let myChartInstance = null;
+    let activeSettingsView = 'menu';
 
     const i18n = {
         bn: {
@@ -640,9 +997,9 @@
             modalChartTitle: "গত ৭ দিনের কাজের গ্রাফ",
             addBtn: "যোগ করুন", saveBtn: "সংরক্ষণ",
             targetRem: "বাকি", targetDone: "সফল",
-            navCal: "ক্যালেন্ডার", navSet: "অ্যাকাউন্টস",
+            navCal: "ক্যালেন্ডার", navSet: "অ্যাকাউন্টস", navPara: "Paragraph",
             lblTodayCount: "আজকের মোট কাজ", lblTodayEarnings: "আজকের আনুমানিক আয় ↗", lblMonthEarnings: "চলতি মাসের আয় ↗",
-            dropClear: "আজকের ডাটা ক্লিয়ার", dropMaster: "মাস্টার রিসেট (সব মুছুন)",
+            dropClear: "Clear Running Entries", dropMaster: "Master Reset (All Data)",
             targetText: "কাজের টার্গেট", rateText: "গড় মূল্য",
             days: ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহ:", "শুক্র", "শনি"],
             months: ["জানুয়ারী", "ফেব্রুয়ারী", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"],
@@ -660,9 +1017,9 @@
             modalChartTitle: "Last 7 Days Work Chart",
             addBtn: "Add New", saveBtn: "Save",
             targetRem: "Remaining", targetDone: "Success",
-            navCal: "Calendar", navSet: "Manage",
+            navCal: "Calendar", navSet: "Manage", navPara: "Paragraph",
             lblTodayCount: "Today's Total Tasks", lblTodayEarnings: "Today's Estimated Earnings ↗", lblMonthEarnings: "This Month Earnings ↗",
-            dropClear: "Clear Today Entries", dropMaster: "Master Reset (Delete All)",
+            dropClear: "Clear Running Entries", dropMaster: "Master Reset (All Data)",
             targetText: "Work Target", rateText: "Avg Price",
             days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
             months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -675,7 +1032,6 @@
         return str.toString().replace(/[0-9]/g, w => i18n.bn.digits[w] || w);
     }
 
-    /* Sound Effect Synth */
     function playBeep() {
         try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -683,14 +1039,13 @@
             const gain = ctx.createGain();
             osc.connect(gain);
             gain.connect(ctx.destination);
-            osc.frequency.value = 587.33; // D5 note
+            osc.frequency.value = 587.33;
             gain.gain.setValueAtTime(0.1, ctx.currentTime);
             osc.start();
             osc.stop(ctx.currentTime + 0.1);
         } catch(e) {}
     }
 
-    /* Theme Management */
     function toggleTheme() {
         const body = document.body;
         const currentTheme = body.getAttribute('data-theme');
@@ -700,7 +1055,6 @@
         localStorage.setItem('theme', newTheme);
     }
 
-    /* Live Clock */
     function updateLiveWidgets() {
         const now = new Date();
         let hours = now.getHours();
@@ -721,7 +1075,6 @@
             : `${dayName}, ${monthName} ${dayDate}, ${year}`;
         document.getElementById('liveDate').innerText = dateStr;
 
-        // Refresh dynamic countdown timers
         updateTimers();
     }
     setInterval(updateLiveWidgets, 1000);
@@ -730,7 +1083,7 @@
         let accs = JSON.parse(localStorage.getItem('turk_accounts'));
         if (!accs || accs.length === 0) {
             accs = [
-                { id: 1, name: 'Account A', target: 10, targetHours: 4, targetMins: 30, rate: 0.25 },
+                { id: 1, name: 'Account A', target: 10, targetHours: 8, targetMins: 30, rate: 0.25 },
                 { id: 2, name: 'Account B', target: 30, targetHours: 2, targetMins: 0, rate: 1.50 }
             ];
             localStorage.setItem('turk_accounts', JSON.stringify(accs));
@@ -746,6 +1099,17 @@
         updateLiveWidgets();
         displayData();
         setupKeyboardShortcuts();
+
+        // Browser Back Button Listener for Two-Level Navigation
+        window.addEventListener('popstate', function(e) {
+            if (document.getElementById('settingsModal').style.display === 'flex') {
+                if (e.state && e.state.settingsView && e.state.settingsView !== 'menu') {
+                    showSettingsSubPage(e.state.settingsView, false);
+                } else {
+                    showSettingsMainMenu(false);
+                }
+            }
+        });
     };
 
     function toggleLanguage() {
@@ -768,6 +1132,7 @@
         document.getElementById('lbl-month-earnings').innerText = t.lblMonthEarnings;
         document.getElementById('btn-text-cal').innerText = t.navCal;
         document.getElementById('btn-text-settings').innerText = t.navSet;
+        document.getElementById('btn-text-para').innerText = t.navPara;
         document.getElementById('text-drop-clear').innerText = t.dropClear;
         document.getElementById('text-drop-master').innerText = t.dropMaster;
 
@@ -783,7 +1148,6 @@
 
         let runningLogs = JSON.parse(localStorage.getItem('runningLogs')) || [];
         
-        // Start Timer for this account if not already started today
         let accTimers = JSON.parse(localStorage.getItem('accTimers')) || {};
         if (!accTimers[accountName] || accTimers[accountName].date !== dateStr) {
             accTimers[accountName] = { date: dateStr, startTime: now.getTime() };
@@ -832,6 +1196,12 @@
             </div>
         `;
         setTimeout(() => { container.innerHTML = ''; }, 4000);
+    }
+
+    function showSimpleToast(msg) {
+        const container = document.getElementById('toastContainer');
+        container.innerHTML = `<div class="toast"><span>${msg}</span></div>`;
+        setTimeout(() => { container.innerHTML = ''; }, 3000);
     }
 
     function undoDelete() {
@@ -883,7 +1253,6 @@
         document.getElementById('statTodayEarnings').innerText = `$${translateDigits(todayEarnings.toFixed(2))}`;
         document.getElementById('statMonthEarnings').innerText = `$${translateDigits(monthEarnings.toFixed(2))}`;
 
-        // Render Work & Time Progress Loaders
         const loadersContainer = document.getElementById('loadersContainer');
         loadersContainer.innerHTML = '';
         const tl = i18n[currentLanguage].targetText;
@@ -897,7 +1266,6 @@
             const card = document.createElement('div');
             card.className = 'loader-card';
             card.innerHTML = `
-                <!-- Work Target Progress Bar -->
                 <div class="loader-info">
                     <span>${acc.name} <small style="color:var(--text-muted);">($${rateFormatted}/task)</small></span>
                     <span style="font-size:11px;">${tl}: ${translateDigits(currentCount)}/${translateDigits(myTarget)} (${translateDigits(percentage)}%)</span>
@@ -906,7 +1274,6 @@
                     <div class="progress-bar-fill" style="width: ${percentage}%"></div>
                 </div>
 
-                <!-- Time Target Progress Bar -->
                 <div class="loader-info" style="margin-top:12px;">
                     <span style="font-size:11px; color:var(--text-muted);">⏱️ টার্গেট সময়: ${translateDigits(acc.targetHours || 0)}ঘ:${translateDigits(acc.targetMins || 0)}মি</span>
                     <span style="font-size:11px; font-weight:800; color:var(--danger);" id="time-text-${acc.id}">--:--:--</span>
@@ -920,7 +1287,6 @@
 
         updateTimers();
 
-        // Render Quick Action Buttons
         const btnContainer = document.getElementById('accountButtonsContainer');
         btnContainer.innerHTML = '';
 
@@ -935,7 +1301,6 @@
             btnContainer.appendChild(btn);
         });
 
-        // Render Table
         const tableBody = document.getElementById('logTableBody');
         tableBody.innerHTML = '';
         let cumulativeDayAccCounter = {};
@@ -971,7 +1336,6 @@
         });
     }
 
-    /* Live Countdown Logic for Time Bar */
     function updateTimers() {
         const accounts = getAccounts();
         const accTimers = JSON.parse(localStorage.getItem('accTimers')) || {};
@@ -994,7 +1358,6 @@
             const timerInfo = accTimers[acc.name];
             
             if (!timerInfo || timerInfo.date !== todayStr) {
-                // If not started today, show full time initially
                 const h = String(acc.targetHours || 0).padStart(2, '0');
                 const m = String(acc.targetMins || 0).padStart(2, '0');
                 text.innerText = translateDigits(`${h}:${m}:00 Baki`);
@@ -1022,7 +1385,228 @@
         });
     }
 
-    /* Open & Manage Earnings Modal with Dynamic Date Filter */
+    /* ---------------------------------------------------- */
+    /* PARAGRAPH MANAGEMENT SYSTEM                          */
+    /* ---------------------------------------------------- */
+    function getParagraphs() {
+        return JSON.parse(localStorage.getItem('turk_paragraphs')) || [];
+    }
+
+    function saveParagraphsToStorage(paras) {
+        localStorage.setItem('turk_paragraphs', JSON.stringify(paras));
+    }
+
+    function openParagraphModal() {
+        document.getElementById('paragraphModal').style.display = 'flex';
+        renderParagraphList();
+    }
+
+    function renderParagraphList() {
+        const container = document.getElementById('paragraphListContainer');
+        const selector = document.getElementById('paraQuickSelector');
+        const list = getParagraphs();
+        
+        container.innerHTML = '';
+        selector.innerHTML = '<option value="">Select / Jump to Paragraph...</option>';
+
+        if (list.length === 0) {
+            container.innerHTML = `
+                <div style="text-align:center; padding:30px; color:var(--text-muted);">
+                    <p style="font-size:16px; margin-bottom:10px;">কোনো সেভ করা প্যারাগ্রাফ পাওয়া যায়নি!</p>
+                    <small>Settings ⚙️ থেকে "Paragraph Management" ব্যবহার করে নতুন প্যারাগ্রাফ যোগ করতে পারেন।</small>
+                </div>
+            `;
+            return;
+        }
+
+        list.forEach(p => {
+            const formattedNum = translateDigits(p.pNumber);
+            const displayName = p.name ? `${formattedNum}। ${escapeHtml(p.name)}` : `${formattedNum}।`;
+
+            const opt = document.createElement('option');
+            opt.value = `para_card_${p.id}`;
+            opt.innerText = displayName;
+            selector.appendChild(opt);
+
+            const card = document.createElement('div');
+            card.className = 'para-card';
+            card.id = `para_card_${p.id}`;
+            card.innerHTML = `
+                <div class="para-header">
+                    <span class="para-badge">${displayName}</span>
+                    <button class="copy-btn" onclick="copyParagraphText('${p.id}', this)">📋 Copy Text</button>
+                </div>
+                <div class="para-content" id="para-text-${p.id}" onclick="toggleReadingMode(this)">${escapeHtml(p.text)}</div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function toggleReadingMode(element) {
+        document.querySelectorAll('.para-content').forEach(el => {
+            if (el !== element) {
+                el.classList.remove('reading-mode');
+            }
+        });
+        element.classList.toggle('reading-mode');
+    }
+
+    function jumpToParagraph(cardId) {
+        if (!cardId) return;
+        const element = document.getElementById(cardId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            document.querySelectorAll('.para-card').forEach(c => c.classList.remove('highlighted'));
+            element.classList.add('highlighted');
+            
+            const contentEl = element.querySelector('.para-content');
+            if (contentEl) {
+                toggleReadingMode(contentEl);
+            }
+
+            setTimeout(() => {
+                element.classList.remove('highlighted');
+            }, 2500);
+        }
+    }
+
+    function escapeHtml(text) {
+        if (!text) return '';
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function copyParagraphText(id, btnElement) {
+        const list = getParagraphs();
+        const target = list.find(item => item.id === id);
+        if (target) {
+            navigator.clipboard.writeText(target.text).then(() => {
+                const origText = btnElement.innerHTML;
+                btnElement.innerHTML = '✅ Copied!';
+                btnElement.style.background = 'var(--success)';
+                const labelName = target.name ? target.name : `Paragraph ${target.pNumber}`;
+                showSimpleToast(`${labelName} Clipboard-এ কপি হয়েছে!`);
+                setTimeout(() => {
+                    btnElement.innerHTML = origText;
+                    btnElement.style.background = 'var(--secondary)';
+                }, 2000);
+            }).catch(() => {
+                alert("কপি করতে সমস্যা হয়েছে!");
+            });
+        }
+    }
+
+    function toggleParagraphBox() {
+        const box = document.getElementById('addParagraphBox');
+        if (box.style.display === 'none' || !box.style.display) {
+            box.style.display = 'block';
+            document.getElementById('paragraphNameInput').focus();
+        } else {
+            cancelParagraphEdit();
+        }
+    }
+
+    function cancelParagraphEdit() {
+        editingParagraphNumber = null;
+        document.getElementById('addParagraphBox').style.display = 'none';
+        document.getElementById('paragraphNameInput').value = '';
+        document.getElementById('paragraphTextArea').value = '';
+        document.getElementById('paraBoxTitle').innerText = "নতুন প্যারাগ্রাফ তৈরি করুন";
+    }
+
+    function saveParagraph() {
+        const name = document.getElementById('paragraphNameInput').value.trim();
+        const text = document.getElementById('paragraphTextArea').value.trim();
+        if (!text) {
+            alert("অনুগ্রহ করে প্যারাগ্রাফের মূল Text লিখুন!");
+            return;
+        }
+
+        let list = getParagraphs();
+
+        if (editingParagraphNumber !== null) {
+            list = list.map(p => p.pNumber === editingParagraphNumber ? { ...p, name: name, text: text } : p);
+            editingParagraphNumber = null;
+            showSimpleToast("প্যারাগ্রাফ সফলভাবে আপডেট করা হয়েছে!");
+        } else {
+            let maxPNumber = 0;
+            list.forEach(p => {
+                if (p.pNumber > maxPNumber) maxPNumber = p.pNumber;
+            });
+            const nextPNumber = maxPNumber + 1;
+
+            list.push({
+                id: 'p_' + Date.now(),
+                pNumber: nextPNumber,
+                name: name,
+                text: text
+            });
+            showSimpleToast(`${translateDigits(nextPNumber)}। ${name || ''} সফলভাবে সেভ হয়েছে!`);
+        }
+
+        saveParagraphsToStorage(list);
+        cancelParagraphEdit();
+        renderSettingsParagraphs();
+        renderParagraphList();
+    }
+
+    function editParagraph(pNumber) {
+        const list = getParagraphs();
+        const target = list.find(p => p.pNumber === pNumber);
+        if (target) {
+            editingParagraphNumber = pNumber;
+            document.getElementById('addParagraphBox').style.display = 'block';
+            document.getElementById('paragraphNameInput').value = target.name || '';
+            document.getElementById('paragraphTextArea').value = target.text;
+            document.getElementById('paraBoxTitle').innerText = `${translateDigits(pNumber)}। ${target.name || ''} Edit করুন`;
+            document.getElementById('paragraphNameInput').focus();
+        }
+    }
+
+    function deleteParagraph(pNumber) {
+        if (confirm(`${translateDigits(pNumber)} নম্বর প্যারাগ্রাফটি মুছে ফেলতে চান?`)) {
+            let list = getParagraphs();
+            list = list.filter(p => p.pNumber !== pNumber);
+            saveParagraphsToStorage(list);
+            renderSettingsParagraphs();
+            renderParagraphList();
+            showSimpleToast(`${translateDigits(pNumber)} নম্বর প্যারাগ্রাফটি মুছে ফেলা হয়েছে!`);
+        }
+    }
+
+    function renderSettingsParagraphs() {
+        const container = document.getElementById('settingsParagraphList');
+        const list = getParagraphs();
+        container.innerHTML = '';
+
+        if (list.length === 0) {
+            container.innerHTML = '<p style="font-size:12px; color:var(--text-muted);">কোনো প্যারাগ্রাফ নেই। উপরে "+ Add Paragraph" বাটনে ক্লিক করে তৈরি করুন।</p>';
+            return;
+        }
+
+        list.forEach(p => {
+            const shortText = p.text.length > 40 ? p.text.substring(0, 40) + '...' : p.text;
+            const formattedNum = translateDigits(p.pNumber);
+            const displayName = p.name ? `${formattedNum}। ${escapeHtml(p.name)}` : `${formattedNum}।`;
+
+            const div = document.createElement('div');
+            div.className = 'acc-item';
+            div.innerHTML = `
+                <span><strong>${displayName}</strong> <span style="color:var(--text-muted); font-size:12px;">(${escapeHtml(shortText)})</span></span>
+                <div>
+                    <button onclick="editParagraph(${p.pNumber})" style="background:none; border:none; color:var(--primary); cursor:pointer; font-weight:bold;">📝 Edit</button>
+                    <button onclick="deleteParagraph(${p.pNumber})" style="background:none; border:none; color:var(--danger); cursor:pointer; font-weight:bold; margin-left:8px;">✕ Delete</button>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
     function openEarningsModal(defaultType) {
         const modal = document.getElementById('earningsModal');
         const filterSelect = document.getElementById('filterTypeSelect');
@@ -1123,7 +1707,6 @@
         totalVal.innerText = `$${translateDigits(grandTotal.toFixed(2))}`;
     }
 
-    /* Print Statement Function */
     function printStatement() {
         window.print();
     }
@@ -1144,6 +1727,7 @@
     function exportJSONData() {
         const data = {
             accounts: getAccounts(),
+            paragraphs: getParagraphs(),
             accTimers: JSON.parse(localStorage.getItem('accTimers')) || {},
             runningLogs: JSON.parse(localStorage.getItem('runningLogs')) || [],
             finalLogs: JSON.parse(localStorage.getItem('finalLogs')) || []
@@ -1164,6 +1748,7 @@
             try {
                 const data = JSON.parse(e.target.result);
                 if (data.accounts) localStorage.setItem('turk_accounts', JSON.stringify(data.accounts));
+                if (data.paragraphs) localStorage.setItem('turk_paragraphs', JSON.stringify(data.paragraphs));
                 if (data.accTimers) localStorage.setItem('accTimers', JSON.stringify(data.accTimers));
                 if (data.runningLogs) localStorage.setItem('runningLogs', JSON.stringify(data.runningLogs));
                 if (data.finalLogs) localStorage.setItem('finalLogs', JSON.stringify(data.finalLogs));
@@ -1255,7 +1840,61 @@
         });
     }
 
-    function openSettings() { document.getElementById('settingsModal').style.display = 'flex'; renderSettings(); }
+    /* ---------------------------------------------------- */
+    /* NEW TWO-LEVEL SETTINGS NAVIGATION FUNCTIONS          */
+    /* ---------------------------------------------------- */
+    function openSettings() { 
+        document.getElementById('settingsModal').style.display = 'flex'; 
+        showSettingsMainMenu(true);
+    }
+
+    function showSettingsMainMenu(pushHistory = true) {
+        activeSettingsView = 'menu';
+        document.getElementById('settingsMainMenu').style.display = 'block';
+        document.getElementById('viewAccountSettings').style.display = 'none';
+        document.getElementById('viewParagraphManagement').style.display = 'none';
+        document.getElementById('viewBackupRestore').style.display = 'none';
+        document.getElementById('viewResetOptions').style.display = 'none';
+
+        if (pushHistory) {
+            history.pushState({ settingsView: 'menu' }, '', '#settings');
+        }
+    }
+
+    function openSettingsView(type) {
+        document.getElementById('settingsModal').style.display = 'flex';
+        showSettingsSubPage(type, true);
+    }
+
+    function showSettingsSubPage(type, pushHistory = true) {
+        activeSettingsView = type;
+        document.getElementById('settingsMainMenu').style.display = 'none';
+        document.getElementById('viewAccountSettings').style.display = 'none';
+        document.getElementById('viewParagraphManagement').style.display = 'none';
+        document.getElementById('viewBackupRestore').style.display = 'none';
+        document.getElementById('viewResetOptions').style.display = 'none';
+
+        if (type === 'account') {
+            document.getElementById('viewAccountSettings').style.display = 'block';
+            renderSettings();
+        } else if (type === 'paragraph') {
+            document.getElementById('viewParagraphManagement').style.display = 'block';
+            renderSettingsParagraphs();
+        } else if (type === 'backup') {
+            document.getElementById('viewBackupRestore').style.display = 'block';
+        } else if (type === 'reset') {
+            document.getElementById('viewResetOptions').style.display = 'block';
+        }
+
+        if (pushHistory) {
+            history.pushState({ settingsView: type }, '', `#settings-${type}`);
+        }
+    }
+
+    function backToSettingsMenu() {
+        showSettingsMainMenu(true);
+    }
+
     function openCalendar() { document.getElementById('calendarModal').style.display = 'flex'; renderCalendar(); }
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
@@ -1327,21 +1966,45 @@
         }
     }
 
+    /* SAFE CONFIRMATION DIALOGS FOR RESET ACTIONS */
+    function promptClearTodayRunning() {
+        const confirmModal = document.getElementById('resetConfirmModal');
+        document.getElementById('resetConfirmTitle').innerText = "Clear Running Entries?";
+        document.getElementById('resetConfirmMessage').innerText = "আজকের রানিং সব এন্ট্রি এবং টাইমার ডাটা মুছে যাবে। আপনি কি নিশ্চিত?";
+        
+        const btn = document.getElementById('resetConfirmBtn');
+        btn.onclick = function() {
+            clearTodayRunning();
+            closeModal('resetConfirmModal');
+        };
+        confirmModal.style.display = 'flex';
+    }
+
+    function promptClearAllData() {
+        const confirmModal = document.getElementById('resetConfirmModal');
+        document.getElementById('resetConfirmTitle').innerText = "Master Reset (All Data)?";
+        document.getElementById('resetConfirmMessage').innerText = "সতর্কতা: আপনার সমস্ত অ্যাকাউন্ট, প্যারাগ্রাফ, রানিং ডাটা ও হিস্ট্রি স্থায়ীভাবে মুছে যাবে!";
+        
+        const btn = document.getElementById('resetConfirmBtn');
+        btn.onclick = function() {
+            clearAllData();
+            closeModal('resetConfirmModal');
+        };
+        confirmModal.style.display = 'flex';
+    }
+
     function clearTodayRunning() {
-        if (confirm("আজকের রানিং এন্ট্রি ক্লিয়ার করতে চান?")) {
-            localStorage.removeItem('runningLogs');
-            localStorage.removeItem('accTimers');
-            closeModal('settingsModal');
-            displayData();
-        }
+        localStorage.removeItem('runningLogs');
+        localStorage.removeItem('accTimers');
+        displayData();
+        showSimpleToast("আজকের রানিং এন্ট্রি ক্লিয়ার করা হয়েছে!");
     }
 
     function clearAllData() {
-        if (confirm("সব ডাটা মুছে ফেলতে চান?")) {
-            localStorage.clear();
-            closeModal('settingsModal');
-            displayData();
-        }
+        localStorage.clear();
+        closeModal('settingsModal');
+        displayData();
+        showSimpleToast("সমস্ত ডাটা রিসেট করা হয়েছে!");
     }
 
     function changeMonth(dir) { currentCalDate.setMonth(currentCalDate.getMonth() + dir); renderCalendar(); }
