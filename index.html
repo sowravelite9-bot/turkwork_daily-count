@@ -977,6 +977,58 @@
 </div>
 
 <script>
+    // Embedded Paragraph Data (Replaces paragraphs.json)
+    const defaultParagraphs = [
+        {
+            "id": "p_1",
+            "pNumber": 1,
+            "name": "Ai Checking",
+            "text": "This is the candidate's profile and resume: “\"\n\nThis is the job description: “\"\n\nPlease evaluate how likely it is that this candidate will receive an interview invitation if they apply for this position.\n\nFor each job, provide:\n\n1. **An estimated interview probability (%)** showing the candidate's chances of getting an interview.\n2. **The distance between the candidate's current location and the job location.**\n3. **A CV-to-job fit score (%)** showing how well the candidate's experience, skills, education, and certifications match the job requirements.\n4. **An assessment of whether the candidate can successfully solve the problems and perform the responsibilities required for this role.**\n5. **An evaluation of whether the candidate demonstrates measurable achievements and can prove their value with numbers, metrics, or business results.**\n6. **The candidate's key strengths and weaknesses** for this specific position.\n7. **The most important missing qualifications, skills, or experiences** that may reduce their chances of receiving an interview.\n\nPlease pay special attention to the hiring company. If the job is posted by any of the following companies, clearly alert me:\n\nHardy Industries, Mindlance, LanceSoft, TalentBurst, Softpath Systems, Integrated Resources, Globe Life, Spectra, ICONMA, AppleOne, Nordex Group, Cynet Systems, Selby Jennings, Indigo Arabia, The Cannington Agency, USHA, or State Farm Agent.\n\nWhen making your assessment, consider:\n\n* Relevant work experience\n* Technical skills\n* Education\n* Certifications\n* Career progression and job stability\n* Location and commuting distance\n* Overall alignment with the job requirements\n\nAfter the detailed analysis, provide a **brief summary of approximately 50 words** explaining the overall interview likelihood and the main reasons behind your estimate."
+        },
+        {
+            "id": "p_2",
+            "pNumber": 2,
+            "name": "Ai Checking",
+            "text": "This is candidate's details and CV \" \"\n\nAnd this is job details \" \"\n\nBased on this candidate’s profile, if they apply for this job, what is the estimated likelihood that they will receive an interview invitation? Please also specifically mention the distance between the candidate’s current address and the job location. ifFor each position, provide an estimated probability percentage of receiving an interview invitation.\nAnd you must also pay attention to which company the job is for. I'm providing a list of companies that are associated with scams or that I want flagged:\nList of Scams / Companies to Flag: Hardy Industries, Mindlance, LanceSoft, TalentBurst, Softpath Systems, Integrated Resources, Globe Life, Spectra,\nICONMA, AppleOne, Nordex Group, Cynet Systems, Selby Jennings, Indigo Arabia, The Cannington Agency, USHA, State Farm Agent.\nIf the job is from any of these companies, you must alert me.\nAfter providing a detailed explanation, please include a brief summary of approximately 50 words at the end."
+        },
+        {
+            "id": "p_3",
+            "pNumber": 3,
+            "name": "Reason for Uninterview",
+            "text": "Very concisely, in 20 words, explain which key experiences the candidate lacks that may prevent them from getting an interview or being selected for this job."
+        },
+        {
+            "id": "p_4",
+            "pNumber": 4,
+            "name": "Platform Bug/Other Reason's",
+            "text": "Job Location does not match with the applicant's given request.\n\nUnable to apply because the candidate's Indeed profile contains an error.\n\nThis phone number type isn't supported. Use a non-virtual phone number instead.\n\nThis candidate does not have the required experience for this job."
+        },
+        {
+            "id": "p_5",
+            "pNumber": 5,
+            "name": "References",
+            "text": "Tim Pillard | 302-740-5951 | timothy.pillard@mycomputercareer.edu\nGreg Miller | 919-617-9342 | greg.miller@mycomputercareer.com"
+        },
+        {
+            "id": "p_6",
+            "pNumber": 6,
+            "name": "Upload List of Professional References",
+            "text": "Professional References — Contact Information Available Upon Request\n\nApplicant: Priscilla Bing\nPhone: +1 424-766-4195\nLocation: Wilmington, DE, USA\n\nTo protect privacy, full names, titles, emails, and phone numbers for the references below will be provided immediately upon request or via secure upload. References represent direct supervisors and team leads from recent roles.\n\n1) IronOrbit — Service Desk Manager (Direct Supervisor)\n   Role supported: Service Desk Analyst II\n   Dates: Aug 2024–Present\n   Location: Wilmington, DE\n   Contact: Available upon request\n\n2) Penn Power Group — IT Manager (Supervisor)\n   Role supported: IT Analyst\n   Dates: May 2023–Sep 2023\n   Location: Philadelphia, PA\n   Contact: Available upon request\n\n3) Persante Health Care — Systems Manager (Supervisor)\n   Role supported: System Administrator\n   Dates: Jan 2023–Apr 2023\n   Location: Mt. Laurel, NJ\n   Contact: Available upon request\n\n4) Berkadia — Support Team Lead (Supervisor)\n   Role supported: Technical Support Engineer\n   Dates: Aug 2022–Jan 2023\n   Location: Ambler, PA\n   Contact: Available upon request\n\n5) Benefits Data Trust — Technical Services Lead (Supervisor)\n   Role supported: Technical Services Analyst\n   Dates: Aug 2021–Jul 2022\n   Location: Philadelphia, PA\n   Contact: Available upon request\n\nAdditional references from earlier roles (WBE, Main Line Health) are also available upon request.\n\nAvailability: References can be provided within 24 hours of request."
+        },
+        {
+            "id": "p_8",
+            "pNumber": 8,
+            "name": "Ai Checking for Job Request",
+            "text": "Based on the candidate's CV \" \"\nAnd job location \"  \"\n\nFind job links within the specified location that match the candidate's qualifications. It would be best to find jobs from websites such as Indeed, Glassdoor, SimplyHired, Monster, CareerBulder, USAJobs, jobcase  or ZipRecruiter (or similar job platforms). The goal is to identify positions where the candidate has a strong chance of getting an interview, ideally around 70% out of 100%."
+        },
+        {
+            "id": "p_9",
+            "pNumber": 9,
+            "name": "Ai Checking",
+            "text": "Here is the candidate’s CV: \"   \"\n\nAnd this is the selected job description: \"  \"\n\nPlease observe very carefully and tell me how well the candidate fits for this job. If the candidate applies for this position, what is the candidate’s interview chance as a percentage? (*1st class: very strong, percentage: 80%–100%, mark: green; *2nd class: medium, percentage: 60%–80%, mark: blue; 3rd class: low, percentage: 1%–60%, mark: red.) Also tell me the distance in kilometers between the candidate’s location and the job location. And definitely arrange the job requirements and the candidate’s qualifications side-by-side in a table, marking each candidate qualification with its class, percentage, and mark based on the job requirements. After describing each item, briefly (within 50 words) mention the candidate’s interview chance percentage."
+        }
+    ];
+
     let currentLanguage = 'bn';
     let currentCalDate = new Date();
     let editingAccountId = null;
@@ -1096,6 +1148,7 @@
         document.body.setAttribute('data-theme', savedTheme);
         document.getElementById('themeBtn').innerText = savedTheme === 'dark' ? '☀️' : '🌙';
         
+        getParagraphs(); // Initialize paragraphs in localStorage if not exists
         updateLiveWidgets();
         displayData();
         setupKeyboardShortcuts();
@@ -1389,7 +1442,12 @@
     /* PARAGRAPH MANAGEMENT SYSTEM                          */
     /* ---------------------------------------------------- */
     function getParagraphs() {
-        return JSON.parse(localStorage.getItem('turk_paragraphs')) || [];
+        let stored = localStorage.getItem('turk_paragraphs');
+        if (!stored) {
+            localStorage.setItem('turk_paragraphs', JSON.stringify(defaultParagraphs));
+            return defaultParagraphs;
+        }
+        return JSON.parse(stored);
     }
 
     function saveParagraphsToStorage(paras) {
