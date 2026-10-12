@@ -12,39 +12,43 @@
     "content": "Education Details: \" \"\n\nBased on the education information I provided above, please select which degree it belongs to from the options below. Then, tell me the Field of Study/Major of Study for that degree.\n\nOptions: \" \""
   },
   {
-     "title": "4. Education Type Checking Without Options",
-     "content": "Education Details: \" \"\n\nBased on the education information I provided above, please tell me which degree it is. Then, tell me the Field of Study/Major of Study for that degree."
+    "title": "4. Education Type Checking Without Options",
+    "content": "Education Details: \" \"\n\nBased on the education information I provided above, please tell me which degree it is. Then, tell me the Field of Study/Major of Study for that degree."
   },
   {
-    "title": "5. Platform Bug/Other Reason of Location ",
+    "title": "5. Ai Cheking 4",
+    "content": "CANDIDATE JOB MATCH & INTERVIEW PROBABILITY ANALYSIS\nCandidate's Details & CV:\n\" \"\nJob Description:\n\" \"\nAnalyze the candidate's CV against the job requirements and provide a realistic, evidence-based evaluation of their chances of receiving an interview invitation.\n1. Job Details & Required Experience\n- Job Title, Company Name, Location, Salary, and Employment Type.\n- REQUIRED YEARS OF EXPERIENCE: X YEARS (Display prominently in large, bold text).\n- Required education, skills, certifications, and qualifications.\n2. Job Match & Interview Probability\n- Overall Job Match: XX%\n- Estimated Interview Invitation Probability: XX%\n- Explain the candidate's strengths, weaknesses, missing qualifications, and experience gaps.\n- Evaluate each position separately if multiple jobs are provided.\n- Base all percentages on the CV and job requirements, not assumptions.\n3. Location & Distance\n- Candidate's Current Location:\n- Job Location:\n- Distance: XX Miles / XX KM\n- Estimated Driving Time:\n- Remote / Hybrid / On-Site:\n- Explain whether location or commuting distance could affect interview chances.\n- Do not invent distances when reliable information is unavailable.\n4. Company Scam Watchlist Check\nFlag these companies:\nHardy Industries, Mindlance, LanceSoft, TalentBurst, Softpath Systems, Integrated Resources, Globe Life, Spectra, ICONMA, AppleOne, Nordex Group, Cynet Systems, Selby Jennings, Indigo Arabia, The Cannington Agency, USHA, State Farm Agent.\nIf the employer matches this list, display:\n🚨 WARNING: COMPANY FOUND ON YOUR WATCHLIST!\nA watchlist match does not automatically mean the company is fraudulent. Recommend independent verification.\n5. Final Recommendation\nClearly state whether the candidate should apply:\n- HIGH PRIORITY: Strong Match\n- MEDIUM PRIORITY: Moderate Match\n- LOW PRIORITY: Weak Match\n- NOT RECOMMENDED: Major Qualification Gaps\nExplain the recommendation briefly.\n6. Final Bengali Summary (Exactly 50 Words)\nWrite a clear, meaningful summary in exactly 50 Bengali words, covering job suitability, interview probability, experience gaps, location, and final recommendation.\nIMPORTANT: Only this summary must be in Bengali. All other information must be in English.\n7. Interview Rejection Reason (Exactly 20 English Words)\nImmediately below the Bengali summary, write one professional English sentence of exactly 20 words explaining why the candidate might not receive an interview invitation.\nFocus on missing experience, skills, certifications, or other relevant qualification gaps. Do not invent weaknesses.\nFINAL INSTRUCTIONS\n- Be realistic, accurate, objective, and concise.\n- Never assume missing qualifications.\n- Highlight required experience and interview probability prominently.\n- Always check the company watchlist.\n- Provide a clear application recommendation.\n- Bengali Summary: Exactly 50 Words.\n- English Rejection Reason: Exactly 20 Words."
+  },
+  {
+    "title": "6. Platform Bug/Other Reason of Location ",
     "content": "Job Location does not match with the applicant's given request."
   },
   {
-    "title": "6. Platform Bug/Other Reason of Error",
+    "title": "7. Platform Bug/Other Reason of Error",
     "content": "Unable to apply because the candidate's Indeed profile contains an error."
   },
   {
-    "title": "7. Platform Bug/Other Reason of Number",
+    "title": "8. Platform Bug/Other Reason of Number",
     "content": "This phone number type isn't supported. Use a non-virtual phone number instead."
   },
   {
-    "title": "8. Platform Bug/Other Reason of Experience",
+    "title": "9. Platform Bug/Other Reason of Experience",
     "content": "This candidate does not have the required experience for this job."
   },
   {
-    "title": "9. References",
+    "title": "10. References",
     "content": "Tim Pillard | 302-740-5951 | timothy.pillard@mycomputercareer.edu\nGreg Miller | 919-617-9342 | greg.miller@mycomputercareer.com"
   },
   {
-    "title": "10. Upload List of Professional References",
+    "title": "11. Upload List of Professional References",
     "content": "Professional References — Contact Information Available Upon Request\n\nApplicant: Priscilla Bing\nPhone: +1 424-766-4195\nLocation: Wilmington, DE, USA\n\nTo protect privacy, full names, titles, emails, and phone numbers for the references below will be provided immediately upon request or via secure upload. References represent direct supervisors and team leads from recent roles.\n\n1) IronOrbit — Service Desk Manager (Direct Supervisor)\n   Role supported: Service Desk Analyst II\n   Dates: Aug 2024–Present\n   Location: Wilmington, DE\n   Contact: Available upon request\n\n2) Penn Power Group — IT Manager (Supervisor)\n   Role supported: IT Analyst\n   Dates: May 2023–Sep 2023\n   Location: Philadelphia, PA\n   Contact: Available upon request\n\n3) Persante Health Care — Systems Manager (Supervisor)\n   Role supported: System Administrator\n   Dates: Jan 2023–Apr 2023\n   Location: Mt. Laurel, NJ\n   Contact: Available upon request\n\n4) Berkadia — Support Team Lead (Supervisor)\n   Role supported: Technical Support Engineer\n   Dates: Aug 2022–Jan 2023\n   Location: Ambler, PA\n   Contact: Available upon request\n\n5) Benefits Data Trust — Technical Services Lead (Supervisor)\n   Role supported: Technical Services Analyst\n   Dates: Aug 2021–Jul 2022\n   Location: Philadelphia, PA\n   Contact: Available upon request\n\nAdditional references from earlier roles (WBE, Main Line Health) are also available upon request.\n\nAvailability: References can be provided within 24 hours of request."
   },
   {
-    "title": "11. Ai Checking for Job Request",
+    "title": "12. Ai Checking for Job Request",
     "content": "Based on the candidate's CV \" \"\nAnd job location \"  \"\n\nFind job links within the specified location that match the candidate's qualifications. It would be best to find jobs from websites such as Indeed, Glassdoor, SimplyHired, Monster, CareerBulder, USAJobs, jobcase  or ZipRecruiter (or similar job platforms). The goal is to identify positions where the candidate has a strong chance of getting an interview, ideally around 70% out of 100%."
   },
   {
-    "title": "12. Ai Checking 3",
+    "title": "13. Ai Checking 3",
     "content": "\"This is candidate's details and CV \" \"\nAnd this is job details \" \"\nBased on this candidate’s profile, CV, experience, qualifications, location, and the job requirements, what is the estimated likelihood that they will receive an interview invitation?\nPlease carefully consider the following:\nCandidate’s education, certifications, skills, and overall qualifications.\nRelevant work experience and how closely it matches the job responsibilities.\nRequired vs. preferred qualifications, and any important missing requirements.\nCompare the candidate’s CV Job Titles with the selected job title and explain whether they are a Direct, Related, Weak, or No Meaningful Match.\nConsider whether the candidate’s career level/seniority matches the position.\nMention the distance in miles between the candidate’s current location/address and the job location, and whether commuting or relocation could be a concern.\nConsider the candidate’s relevant industry/company experience.\nDo not assume a skill or qualification exists if it is not supported by the CV. If something is not mentioned, mark it as Not Demonstrated.\nAlso check which company the job is for.\nCompanies to Flag: Hardy Industries, Mindlance, LanceSoft, TalentBurst, Softpath Systems, Integrated Resources, Globe Life, Spectra, ICONMA, AppleOne, Nordex Group, Cynet Systems, Selby Jennings, Indigo Arabia, The Cannington Agency, USHA, State Farm Agent.\nIf the job is from any of these companies, clearly alert me:\n⚠️ FLAGGED COMPANY — This company is on the provided watchlist.\nDo not automatically claim that the company is a scam solely because it appears on the list.\n\nRequired Output:\nInterview Probability: XX%\nMatch Level: Excellent / Strong / Moderate / Weak / Very Weak\nKey Strengths:\n...\nKey Weaknesses / Missing Requirements:\n...\nJob Title Match: Direct / Related / Weak / No Meaningful Match\nCandidate CV Title(s): ...\nTarget Job Title: ...\nImpact on interview chances: ...\nLocation:\nCandidate: ...\nJob: ...\nApprox. Distance: XX miles\nCommute/Relocation concern: ...\nCompany Check:\nCompany: ...\nStatus: FLAGGED / NOT FLAGGED\nFinal Assessment:\nBriefly explain the main reasons behind the estimated interview probability.\nFinally, provide an approximately 50-word summary covering the candidate’s overall fit, key strengths, major gaps, job-title alignment, distance/location, company watchlist status, and interview probability."
   }
 ]
